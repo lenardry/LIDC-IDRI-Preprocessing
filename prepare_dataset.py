@@ -149,8 +149,8 @@ class MakeDataSet:
                     lung_mask = np.zeros_like(lung_segmented_np_array)
 
                     #CN= CleanNodule, CM = CleanMask
-                    nodule_name = "{}/{}_CN001_slice{}".format(pid,pid[-4:],prefix[slice])
-                    mask_name = "{}/{}_CM001_slice{}".format(pid,pid[-4:],prefix[slice])
+                    nodule_name = "{}_CN001_slice{}".format(pid[-4:],prefix[slice])
+                    mask_name = "{}_CM001_slice{}".format(pid[-4:],prefix[slice])
                     meta_list = [pid[-4:],slice,prefix[slice],nodule_name,mask_name,0,False,True]
                     self.save_meta(meta_list)
                     np.save(patient_clean_dir_image / nodule_name, lung_segmented_np_array)
